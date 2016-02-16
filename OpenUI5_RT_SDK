@@ -2,7 +2,7 @@ FROM golang:alpine
 MAINTAINER Kevin Meng <abaper@qq.com>
 
 ENV UI5_VERSION 1.28.28
-ENV UI5_PORT 8080
+ENV UI5_PORT 9090
 ENV UI5_PATH /openui5
 RUN apk update && apk upgrade && apk add wget unzip \
  && mkdir -p ${UI5_PATH}/sdk
@@ -19,7 +19,7 @@ RUN rm ${UI5_PATH}/sdk/openui5-sdk-${UI5_VERSION}.zip
 # OpenUI5 Content Static File Server
 EXPOSE ${UI5_PORT}
 
-RUN wget http://7xqhpp.com1.z0.glb.clouddn.com/FileServer.go -P /go/src 
+RUN wget https://github.com/uzmo/docker/blob/master/FileServer.go -P /go/src 
 RUN cd /go/src
 ENTRYPOINT go run FileServer.go ${UI5_PORT} ${UI5_PATH}
 WORKDIR /go
