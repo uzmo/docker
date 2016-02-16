@@ -13,8 +13,8 @@ func main() {
 	var port string
 	var path string
 	if len(args) < 2 {
-		port = "8080"
-		path = "/var/www/html"
+		port = "9090"
+		path = "/openui5"
 	} else {
 		port = args[0]
 		path = args[1]
