@@ -1,0 +1,10 @@
+FROM alpine:latest
+MAINTAINER Kevin Meng <abaper@qq.com>
+
+ENV UI5_PORT 8080
+RUN apk update && apk upgrade && apk add nodejs git \
+ && git clone https://github.com/SAP/openui5.git \
+ && npm install grunt-cli -g \
+ && cd openui5 && npm install 
+ENTRYPOINT grunt serve --port=${UI5_PORT}
+EXPOSE ${UI5_PORT}
