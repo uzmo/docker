@@ -5,6 +5,6 @@ ENV UI5_PORT 8080
 RUN apk update && apk upgrade && apk add nodejs git \
  && git clone https://github.com/SAP/openui5.git \
  && npm install grunt-cli -g \
- && cd openui5 && npm install 
-ENTRYPOINT grunt serve --port=${UI5_PORT}
+ && cd openui5 && npm install
+CMD /usr/lib/node_modules/grunt-cli/bin/grunt --gruntfile /openui5/Gruntfile.js serve --port=${UI5_PORT}
 EXPOSE ${UI5_PORT}
