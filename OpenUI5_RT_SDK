@@ -21,5 +21,5 @@ EXPOSE ${UI5_PORT}
 
 RUN wget --no-check-certificate https://github.com/uzmo/docker/blob/master/FileServer.go -P /go/src 
 RUN cd /go/src
-ENTRYPOINT go run FileServer.go ${UI5_PORT} ${UI5_PATH}
+ENTRYPOINT /usr/local/go/bin/go run /go/src/FileServer.go ${UI5_PORT} ${UI5_PATH}
 WORKDIR /go
