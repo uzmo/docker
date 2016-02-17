@@ -19,7 +19,7 @@ RUN rm ${UI5_PATH}/sdk/openui5-sdk-${UI5_VERSION}.zip
 # OpenUI5 Content Static File Server
 EXPOSE ${UI5_PORT}
 
-RUN wget --no-check-certificate https://github.com/uzmo/docker/blob/master/FileServer.go -P /go/src 
+RUN wget --no-check-certificate https://raw.githubusercontent.com/uzmo/docker/master/FileServer.go -P /go/src 
 RUN cd /go/src
 ENTRYPOINT /usr/local/go/bin/go run /go/src/FileServer.go ${UI5_PORT} ${UI5_PATH}
 WORKDIR /go
