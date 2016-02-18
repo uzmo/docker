@@ -13,5 +13,5 @@ Run the container:
 docker run -d -p 5000:9090 uzmo/openui5:1.28.28
 
 Access the libraries:
-Runtime: http://<docker machine IP>:5000
-SDK: http://<docker machine IP>:5000/sdk
+Runtime: http://docker machine IP:5000
+SDK: http://docker machine IP:5000/sdk
