@@ -4,8 +4,8 @@ MAINTAINER Kevin Meng <abaper@qq.com>
 ENV UI5_VERSION 1.28.28
 ENV UI5_PORT 9090
 ENV UI5_PATH /openui5
-RUN apk update && apk upgrade && apk add wget unzip \
- && mkdir -p ${UI5_PATH}/sdk
+RUN apk update && apk upgrade && apk add wget unzip
+RUN mkdir -p ${UI5_PATH}/sdk
 
 # Runtime
 RUN wget --no-check-certificate https://openui5.hana.ondemand.com/downloads/openui5-runtime-${UI5_VERSION}.zip -P ${UI5_PATH}
